@@ -1,6 +1,6 @@
 {
 	"name": "ng2-busy",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Pattern project to create library for angular2 with ngModule",
 	"author": "Marcin Michalik",
 	"license": "MIT",

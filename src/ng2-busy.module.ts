@@ -10,8 +10,7 @@ import {Ng2BusyService} from "./ng2-busy.service";
 
 @NgModule({
 	imports: [
-		CommonModule,
-		BrowserAnimationsModule
+		CommonModule
 	],
 	declarations: [
 		Ng2BusyDirective,
