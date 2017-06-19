@@ -9,6 +9,7 @@ const timing = '.3s ease';
 
 @Component({
 	selector: 'ng2-busy-backdrop',
+	styleUrls: ['./ng2-busy-backdrop.component.css'],
 	template: `
 		<div class="ng-busy-backdrop"
 			 @fadeInOut

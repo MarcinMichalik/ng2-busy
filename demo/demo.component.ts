@@ -11,7 +11,7 @@ export class DemoComponent{
 		busy: null,
 		message: 'Loading',
 		backdrop: true,
-		minDuration: 30000
+		minDuration: 3000
 	};
 
 	constructor(private http: Http){}
