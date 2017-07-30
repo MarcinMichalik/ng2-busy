@@ -17,11 +17,11 @@ import {Ng2BusyBackdropComponent} from "./ng2-busy-backdrop/ng2-busy-backdrop.co
  * - `<div [ng2Busy]="{busy: busy, message: 'Loading...', backdrop: false, delay: 200, minDuration: 600}">...</div>`
  */
 @Directive({
-	selector: '[ng2Busy]',
+	selector: '[ng-busy]',
 	providers: [Ng2PromiseTrackerService]
 })
 export class Ng2BusyDirective implements DoCheck {
-	@Input('ng2Busy') options: any;
+	@Input('ng-busy') options: any;
 	optionsRecord: any;
 	optionsNorm: INg2BusyConfig;
 	template: string;

@@ -401,7 +401,7 @@
 
                     <tr>
                         <td class="col-md-3">selector</td>
-                        <td class="col-md-9"><code>[ng2Busy]</code></td>
+                        <td class="col-md-9"><code>[ng-busy]</code></td>
                     </tr>
 
                 </tbody>
@@ -414,7 +414,7 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-2">
-                                    <code>ng2Busy</code>
+                                    <code>ng-busy</code>
                                 </td>
                                 <td class="col-md-10">
                                       <p>
@@ -528,11 +528,11 @@ import {Ng2BusyBackdropComponent} from &quot;./ng2-busy-backdrop/ng2-busy-backdr
  * - &#x60;&lt;div [ng2Busy]&#x3D;&quot;{busy: busy, message: &#x27;Loading...&#x27;, backdrop: false, delay: 200, minDuration: 600}&quot;&gt;...&lt;/div&gt;&#x60;
  */
 @Directive({
-	selector: &#x27;[ng2Busy]&#x27;,
+	selector: &#x27;[ng-busy]&#x27;,
 	providers: [Ng2PromiseTrackerService]
 })
 export class Ng2BusyDirective implements DoCheck {
-	@Input(&#x27;ng2Busy&#x27;) options: any;
+	@Input(&#x27;ng-busy&#x27;) options: any;
 	optionsRecord: any;
 	optionsNorm: INg2BusyConfig;
 	template: string;
