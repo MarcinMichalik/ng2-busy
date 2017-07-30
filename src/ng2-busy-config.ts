@@ -1,11 +1,31 @@
 import {Subscription} from "rxjs/Subscription";
 
 export const NG2_BUSY_CONFIG_DEFAULTS = {
+	// template: `
+	//     <div class="ng-busy-default-wrapper">
+	//     	<div class="ng-busy-default-text">{{message}}</div>
+	//     </div>
+	// `,
 	template: `
-        <div class="ng-busy-default-wrapper">
-        	<div class="ng-busy-default-text">{{message}}</div>
+		<div class="marcin">
+			<div class="dorota"></div>
+		</div>
+		<div class="ng-busy-default-wrapper">
+            <div class="ng-busy-default-sign dupa">
+                <div id="floatingBarsG">
+					<div class="blockG" id="rotateG_01"></div>
+					<div class="blockG" id="rotateG_02"></div>
+					<div class="blockG" id="rotateG_03"></div>
+					<div class="blockG" id="rotateG_04"></div>
+					<div class="blockG" id="rotateG_05"></div>
+					<div class="blockG" id="rotateG_06"></div>
+					<div class="blockG" id="rotateG_07"></div>
+					<div class="blockG" id="rotateG_08"></div>
+				</div>
+                <div class="ng-busy-default-text">{{message}}</div>
+            </div>
         </div>
-    `,
+	`,
 	delay: 0,
 	minDuration: 0,
 	backdrop: true,

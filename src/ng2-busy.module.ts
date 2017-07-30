@@ -1,12 +1,11 @@
 import {CommonModule} from "@angular/common";
 import {ModuleWithProviders, NgModule} from "@angular/core";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {Ng2BusyBackdropComponent} from "./ng2-busy-backdrop.component";
-import {Ng2BusyComponent} from "./ng2-busy-component";
+import {Ng2BusyBackdropComponent} from "./ng2-busy-backdrop/ng2-busy-backdrop.component";
 import {Ng2BusyConfig} from "./ng2-busy-config";
 import {Ng2BusyDirective} from "./ng2-busy.directive";
 
 import {Ng2BusyService} from "./ng2-busy.service";
+import {Ng2BusyComponent} from "./ng2-busy/ng2-busy-component";
 
 @NgModule({
 	imports: [

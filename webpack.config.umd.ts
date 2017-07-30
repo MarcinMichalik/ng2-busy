@@ -3,13 +3,23 @@ import * as fs from 'fs';
 import * as webpack from 'webpack';
 import * as angularExternals from 'webpack-angular-externals';
 import * as rxjsExternals from 'webpack-rxjs-externals';
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const pkg = JSON.parse(fs.readFileSync('./package.json').toString());
 
+
+
+const extractSass = new ExtractTextPlugin({
+	filename: "[name].css",
+	disable: process.env.NODE_ENV === "development"
+});
+
 export default {
     entry: {
-        'bsmodal.umd': path.join(__dirname, 'src', 'index.ts'),
-        'bsmodal.umd.min': path.join(__dirname, 'src', 'index.ts'),
+    	'ng2-busy': path.join(__dirname, "src", "style", "ng2-busy.scss"),
+        'ng2-busy.umd': path.join(__dirname, 'src', 'index.ts'),
+        'ng2-busy.umd.min': path.join(__dirname, 'src', 'index.ts'),
     },
     output: {
         path: path.join(__dirname, 'dist', 'bundles'),
@@ -32,12 +42,25 @@ export default {
             test: /\.ts$/,
             loaders: ['awesome-typescript-loader', 'angular2-template-loader'],
             exclude: /node_modules/
-        }]
+        }, {
+			test: /\.scss$/,
+			use: extractSass.extract({
+				use: [{
+					loader: "css-loader"
+				}, {
+					loader: "sass-loader"
+				}],
+				// use style-loader in development
+				fallback: "style-loader"
+			})
+		}
+		]
     },
     resolve: {
         extensions: ['.ts', '.js']
     },
     plugins: [
+		extractSass,
         new webpack.optimize.UglifyJsPlugin({
             include: /\.min\.js$/,
             sourceMap: true
@@ -58,6 +81,9 @@ export default {
       `.trim(),
             raw: true,
             entryOnly: true
-        })
+        }),
+		new CopyWebpackPlugin([
+			{from: path.join(__dirname, "src", "style", "ng2-busy.scss"), to: path.join(__dirname, 'dist', 'bundles', 'style', "ng2-busy.scss")}
+		])
     ]
 };

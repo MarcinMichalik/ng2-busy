@@ -1,6 +1,28 @@
-<div class="card">
-	<div class="card-block" [ng2Busy]="busyConfig">
-		Load content
+<div class="row mt-3">
+	<div class="col-6">
+		<div class="card">
+			<div class="card-header">
+				Default settings
+			</div>
+			<div class="card-block" [ng2Busy]="busy">
+				Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula. Ut molestie a, ultricies porta urna. Vestibulum commodo volutpat a, convallis ac, laoreet enim. Phasellus fermentum in, dolor. Pellentesque facilisis. Nulla imperdiet sit amet magna. Vestibulum dapibus, mauris nec malesuada fames ac turpis velit, rhoncus eu, luctus et interdum adipiscing wisi. Aliquam erat ac ipsum. Integer aliquam purus. Quisque lorem tortor fringilla sed, vestibulum id, eleifend justo vel bibendum sapien massa ac turpis faucibus orci luctus non, consectetuer lobortis quis, varius in, purus.
+			</div>
+			<div class="card-footer text-center">
+				<button type="button" class="btn btn-primary" (click)="start()">Start</button>
+			</div>
+		</div>
+	</div>
+	<div class="col-6">
+		<div class="card">
+			<div class="card-header">
+				Custom settings
+			</div>
+			<div class="card-block" [ng2Busy]="busyConfig">
+				Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula. Ut molestie a, ultricies porta urna. Vestibulum commodo volutpat a, convallis ac, laoreet enim. Phasellus fermentum in, dolor. Pellentesque facilisis. Nulla imperdiet sit amet magna. Vestibulum dapibus, mauris nec malesuada fames ac turpis velit, rhoncus eu, luctus et interdum adipiscing wisi. Aliquam erat ac ipsum. Integer aliquam purus. Quisque lorem tortor fringilla sed, vestibulum id, eleifend justo vel bibendum sapien massa ac turpis faucibus orci luctus non, consectetuer lobortis quis, varius in, purus.
+			</div>
+			<div class="card-footer text-center">
+				<button type="button" class="btn btn-primary" (click)="startCustom()">Start</button>
+			</div>
+		</div>
 	</div>
 </div>
-<button type="button" class="btn btn-primary" (click)="start()">Start</button>

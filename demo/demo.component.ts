@@ -9,14 +9,19 @@ import {Http} from "@angular/http";
 export class DemoComponent{
 	busyConfig = {
 		busy: null,
-		message: 'Loading',
-		backdrop: true,
-		minDuration: 3000
+		message: 'My message',
+		backdrop: true
 	};
+
+	busy;
 
 	constructor(private http: Http){}
 
 	start() {
-		this.busyConfig.busy = this.http.get('https://httpbin.org/delay/1').subscribe();
+		this.busy = this.http.get('https://httpbin.org/delay/3000').subscribe();
+	}
+
+	startCustom(){
+		this.busyConfig.busy = this.http.get('https://httpbin.org/delay/3000').subscribe();
 	}
 }

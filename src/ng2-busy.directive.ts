@@ -5,10 +5,10 @@ import {
 import { Ng2PromiseTrackerService } from './ng2-promise-tracker.service';
 import { Subscription } from 'rxjs/Subscription';
 import { Ng2BusyService } from './ng2-busy.service';
-import { Ng2BusyBackdropComponent } from './ng2-busy-backdrop.component';
-import { Ng2BusyComponent } from './ng2-busy-component';
 import { equals } from './util';
 import { INg2BusyConfig } from './ng2-busy-config';
+import {Ng2BusyComponent} from "./ng2-busy/ng2-busy-component";
+import {Ng2BusyBackdropComponent} from "./ng2-busy-backdrop/ng2-busy-backdrop.component";
 /**
  * ### Syntax
  *

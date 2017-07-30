@@ -26,7 +26,7 @@ export default {
             test: /\.html$/,
             loader: 'html-loader'
         },
-			{test: /\.css$/, loader: 'raw-loader!postcss-loader'},
+			{test: /\.css$/, loader: 'raw-loader!postcss-loader'}
 		]
     },
     resolve: {
