@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+        <title>bsmodal</title>
+        <style>
+			.ng-busy-backdrop {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				z-index: 1001;
+				background: #fff;
+				opacity: .7; }
+
+			.ng-busy {
+				z-index: 1002;
+			}
+
+			.ng-busy, .ng-busy > * {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				right: 0px;
+				bottom: 0px;
+			}
+
+			.ng-busy-default-wrapper {
+				text-align: center;
+			}
+
+
+
+			.ng-busy-default-sign {
+				position: relative;
+				display: inline-block;
+				z-index: 1003;
+				padding: 12px 14px;
+				border: 1px solid #d8d8d8;
+				border-top: 0;
+				border-radius: 4px;
+				border-top-left-radius: 0;
+				border-top-right-radius: 0;
+				box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+				background: #f8f8f8;
+				color: #333;
+			}
+
+			.ng-busy-default-text {
+				display: inline-block;
+				margin-left: 6px;
+				max-width: 400px;
+				font-size: 14px;
+				text-align: left;
+				color: #333;
+			}
+
+			.ng-busy-default-spinner {
+				position: relative;
+				display: inline-block;
+				width: 25px;
+				height: 25px;
+				vertical-align: middle;
+			}
+
+			@keyframes busy-spinner-anim {
+				from {
+					opacity: 1;
+				}
+				to {
+					opacity: 0.25;
+				}
+			}
+
+			#floatingBarsG{
+				position:relative;
+				width:26px;
+				height:33px;
+				margin:auto;
+			}
+
+			.blockG{
+				position:absolute;
+				background-color:rgb(255,255,255);
+				width:4px;
+				height:10px;
+				border-radius:3px 3px 0 0;
+				-o-border-radius:3px 3px 0 0;
+				-ms-border-radius:3px 3px 0 0;
+				-webkit-border-radius:3px 3px 0 0;
+				-moz-border-radius:3px 3px 0 0;
+				transform:scale(0.4);
+				-o-transform:scale(0.4);
+				-ms-transform:scale(0.4);
+				-webkit-transform:scale(0.4);
+				-moz-transform:scale(0.4);
+				animation-name:fadeG;
+				-o-animation-name:fadeG;
+				-ms-animation-name:fadeG;
+				-webkit-animation-name:fadeG;
+				-moz-animation-name:fadeG;
+				animation-duration:1.2s;
+				-o-animation-duration:1.2s;
+				-ms-animation-duration:1.2s;
+				-webkit-animation-duration:1.2s;
+				-moz-animation-duration:1.2s;
+				animation-iteration-count:infinite;
+				-o-animation-iteration-count:infinite;
+				-ms-animation-iteration-count:infinite;
+				-webkit-animation-iteration-count:infinite;
+				-moz-animation-iteration-count:infinite;
+				animation-direction:normal;
+				-o-animation-direction:normal;
+				-ms-animation-direction:normal;
+				-webkit-animation-direction:normal;
+				-moz-animation-direction:normal;
+			}
+
+			#rotateG_01{
+				left:0;
+				top:12px;
+				animation-delay:0.45s;
+				-o-animation-delay:0.45s;
+				-ms-animation-delay:0.45s;
+				-webkit-animation-delay:0.45s;
+				-moz-animation-delay:0.45s;
+				transform:rotate(-90deg);
+				-o-transform:rotate(-90deg);
+				-ms-transform:rotate(-90deg);
+				-webkit-transform:rotate(-90deg);
+				-moz-transform:rotate(-90deg);
+			}
+
+			#rotateG_02{
+				left:3px;
+				top:4px;
+				animation-delay:0.6s;
+				-o-animation-delay:0.6s;
+				-ms-animation-delay:0.6s;
+				-webkit-animation-delay:0.6s;
+				-moz-animation-delay:0.6s;
+				transform:rotate(-45deg);
+				-o-transform:rotate(-45deg);
+				-ms-transform:rotate(-45deg);
+				-webkit-transform:rotate(-45deg);
+				-moz-transform:rotate(-45deg);
+			}
+
+			#rotateG_03{
+				left:11px;
+				top:1px;
+				animation-delay:0.75s;
+				-o-animation-delay:0.75s;
+				-ms-animation-delay:0.75s;
+				-webkit-animation-delay:0.75s;
+				-moz-animation-delay:0.75s;
+				transform:rotate(0deg);
+				-o-transform:rotate(0deg);
+				-ms-transform:rotate(0deg);
+				-webkit-transform:rotate(0deg);
+				-moz-transform:rotate(0deg);
+			}
+
+			#rotateG_04{
+				right:3px;
+				top:4px;
+				animation-delay:0.9s;
+				-o-animation-delay:0.9s;
+				-ms-animation-delay:0.9s;
+				-webkit-animation-delay:0.9s;
+				-moz-animation-delay:0.9s;
+				transform:rotate(45deg);
+				-o-transform:rotate(45deg);
+				-ms-transform:rotate(45deg);
+				-webkit-transform:rotate(45deg);
+				-moz-transform:rotate(45deg);
+			}
+
+			#rotateG_05{
+				right:0;
+				top:12px;
+				animation-delay:1.05s;
+				-o-animation-delay:1.05s;
+				-ms-animation-delay:1.05s;
+				-webkit-animation-delay:1.05s;
+				-moz-animation-delay:1.05s;
+				transform:rotate(90deg);
+				-o-transform:rotate(90deg);
+				-ms-transform:rotate(90deg);
+				-webkit-transform:rotate(90deg);
+				-moz-transform:rotate(90deg);
+			}
+
+			#rotateG_06{
+				right:3px;
+				bottom:3px;
+				animation-delay:1.2s;
+				-o-animation-delay:1.2s;
+				-ms-animation-delay:1.2s;
+				-webkit-animation-delay:1.2s;
+				-moz-animation-delay:1.2s;
+				transform:rotate(135deg);
+				-o-transform:rotate(135deg);
+				-ms-transform:rotate(135deg);
+				-webkit-transform:rotate(135deg);
+				-moz-transform:rotate(135deg);
+			}
+
+			#rotateG_07{
+				bottom:0;
+				left:11px;
+				animation-delay:1.35s;
+				-o-animation-delay:1.35s;
+				-ms-animation-delay:1.35s;
+				-webkit-animation-delay:1.35s;
+				-moz-animation-delay:1.35s;
+				transform:rotate(180deg);
+				-o-transform:rotate(180deg);
+				-ms-transform:rotate(180deg);
+				-webkit-transform:rotate(180deg);
+				-moz-transform:rotate(180deg);
+			}
+
+			#rotateG_08{
+				left:3px;
+				bottom:3px;
+				animation-delay:1.5s;
+				-o-animation-delay:1.5s;
+				-ms-animation-delay:1.5s;
+				-webkit-animation-delay:1.5s;
+				-moz-animation-delay:1.5s;
+				transform:rotate(-135deg);
+				-o-transform:rotate(-135deg);
+				-ms-transform:rotate(-135deg);
+				-webkit-transform:rotate(-135deg);
+				-moz-transform:rotate(-135deg);
+			}
+
+
+
+			@keyframes fadeG{
+				0%{
+					background-color:rgb(0,0,0);
+				}
+
+				100%{
+					background-color:rgb(255,255,255);
+				}
+			}
+
+			@-o-keyframes fadeG{
+				0%{
+					background-color:rgb(0,0,0);
+				}
+
+				100%{
+					background-color:rgb(255,255,255);
+				}
+			}
+
+			@-ms-keyframes fadeG{
+				0%{
+					background-color:rgb(0,0,0);
+				}
+
+				100%{
+					background-color:rgb(255,255,255);
+				}
+			}
+
+			@-webkit-keyframes fadeG{
+				0%{
+					background-color:rgb(0,0,0);
+				}
+
+				100%{
+					background-color:rgb(255,255,255);
+				}
+			}
+
+			@-moz-keyframes fadeG{
+				0%{
+					background-color:rgb(0,0,0);
+				}
+
+				100%{
+					background-color:rgb(255,255,255);
+				}
+			}
+
+		</style>
+    </head>
+    <body>
+
+        <a href="https://github.com/MarcinMichalik/ng2-busy" class="hidden-xs">
+            <img
+                    style="position: absolute; top: 0; right: 0; border: 0; z-index: 2000"
+                    src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67"
+                    alt="Fork me on GitHub"
+                    data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+        </a>
+
+        <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#">ng2-busy</a>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="javascript:;">Demo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/MarcinMichalik/ng2-busy#installation">Installation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/MarcinMichalik/ng2-busy/docs/">Documentation</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container-fluid container-demo">
+            <demo-app>Loading demo...</demo-app>
+        </div>
+
+    <script type="text/javascript" src="main-87eab78eaf9f894ba95f.js"></script></body>
+</html>
