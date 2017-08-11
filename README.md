@@ -33,6 +33,8 @@ npm install --save ng2-busy
 Then include in your apps module:
 
 ```typescript
+import {Ng2BusyModule} from "ng2-busy";
+
 @NgModule({
   imports: [
     Ng2BusyModule.forRoot()
