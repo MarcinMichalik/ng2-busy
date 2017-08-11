@@ -37,7 +37,7 @@ import {Ng2BusyModule} from "ng2-busy";
 
 @NgModule({
   imports: [
-    Ng2BusyModule.forRoot()
+    Ng2BusyModule
   ]
 })
 export class MyModule {}
